@@ -1,0 +1,26 @@
+{
+  "name": "workshop/framework",
+  "type": "project",
+  "require": {
+    "zendframework/zend-config": "^3.1",
+    "aura/router": "^3.1",
+    "psr/container": "^1.0",
+    "psr/http-message": "^1.0",
+    "psr/log": "^1.0",
+    "zendframework/zend-diactoros": "^1.7",
+    "twig/twig": "^2.0",
+    "laravel/homestead": "^7.3"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jan Mrhar",
+      "email": "jan.mrhar@preskok.si"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Workshop\\": "src/"
+    }
+  }
+}
