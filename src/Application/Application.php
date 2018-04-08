@@ -38,6 +38,7 @@ class Application
   /**
    * Initializes framework
    * @param string $configPath
+   * @return mixed|Application
    */
   public static function init(string $configPath)
   {
@@ -58,7 +59,7 @@ class Application
    */
   public function run()
   {
-    echo  "Dajla, upam!";
+    echo $this->container->get("Router")->resolve();
   }
 
 

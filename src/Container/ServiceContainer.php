@@ -13,6 +13,9 @@ class ServiceContainer implements ContainerInterface
   /** @var array */
   private $container = [];
 
+
+  private static $instances = [];
+
   /**
    * Finds an entry of the container by its identifier and returns it.
    *
@@ -26,11 +29,16 @@ class ServiceContainer implements ContainerInterface
   public function get($id)
   {
     if ($this->has($id)) {
-      $class = $this->container[$id];
 
-      $object = new $class();
+      if (!isset(self::$instances[$id])) {
+        $class = $this->container[$id];
 
-      return $object->createService($this, $id);
+        $object = new $class();
+
+        self::$instances[$id] = $object->createService($this, $id);
+      }
+
+      return self::$instances[$id];
     }
   }
 

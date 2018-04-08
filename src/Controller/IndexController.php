@@ -3,21 +3,17 @@
 namespace Workshop\Controller;
 
 
-use Zend\Diactoros\Request;
-use Zend\Diactoros\Response;
 use Zend\Diactoros\ServerRequest;
 
-class IndexController
+
+/**
+ * Class IndexController
+ * @package Workshop\Controller
+ */
+class IndexController extends AbstractController
 {
   public function indexAction(ServerRequest $request)
   {
-    $response = new Response();
-    $loader = new \Twig_Loader_Filesystem("src/views");
-    $twig = new \Twig_Environment($loader);
-
-
-    $response->getBody()->write($twig->render("/index/index.phtml"));
-
-    return $response;
+    return $this->view("index/index");
   }
 }
